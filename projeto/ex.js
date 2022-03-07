@@ -45,12 +45,51 @@ menuItens[0].classList.add('ativo')
 const images = document.querySelectorAll('img');
 images.forEach((image, index) => {
   if(image.hasAttribute('alt')){
-    console.log(`o item ${index} possui atributo alt`, image)
+    // console.log(`o item ${index} possui atributo alt`, image)
   } else {
-    console.log(`o item ${index} não possui atributo alt`, image)
+    // console.log(`o item ${index} não possui atributo alt`, image)
   }
 })
 
 // Modifique o href do link externo no menu
 const link = document.querySelector('a[href^="http"]');
 link.setAttribute('href', 'https://google.com.br')
+
+// Verifique a distância da primeira imagem
+// em relação ao topo da página
+const firstImg = document.querySelector('img');
+console.log(`a primeira imagem está a ${firstImg.offsetTop}px do topo`)
+
+// Retorne a soma da largura de todas as imagens
+
+function somaLargura(){
+  let totalWidth = 0;
+  images.forEach((image) => {
+    totalWidth += image.offsetWidth
+  })
+  console.log(`a soma das larguras de todas as imagens dá ${totalWidth}px`)
+}
+window.onload = ()=> somaLargura()
+
+// Verifique se os links da página possuem
+// o mínimo recomendado para telas utilizadas
+// com o dedo. (48px/48px de acordo com o google)
+const allLinks = document.querySelectorAll('a');
+allLinks.forEach((link) => {
+  if(link.offsetWidth >= 48 && link.offsetWidth >=48){
+    console.log(`o seguinte links está com dimensoes CORRETAS:`, link)
+  } else {
+    console.log(`o seguinte links está com dimensoes INCORRETAS:`, link)
+  }
+})
+
+// Se o browser for menor que 720px,
+// adicione a classe menu-mobile ao menu
+
+const browser = window.matchMedia('(max-width: 720px)').matches
+if(browser){
+  document.querySelector('.menu').classList.add('menu-mobile')
+} else {
+  document.querySelector('.menu').classList.remove('menu-mobile')
+}
+// console.log(browser)
