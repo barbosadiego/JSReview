@@ -13,3 +13,22 @@ console.log(firstH2)
 const paragraphs = document.querySelectorAll('p');
 const lastParagraph = paragraphs[paragraphs.length - 1]
 console.log(lastParagraph)
+
+// Mostre no console cada parágrado do site
+paragraphs.forEach(item => console.log(item))
+// Mostre o texto dos parágrafos no console
+paragraphs.forEach(item => console.log(item.innerText))
+
+// Como corrigir os erros abaixo:
+const imgs = document.querySelectorAll('img');
+
+imgs.forEach((item, index) => {
+  console.log(item, index);
+});
+
+let i = 0;
+imgs.forEach(() => {
+  console.log(i++);
+});
+
+imgs.forEach(() => i++);
