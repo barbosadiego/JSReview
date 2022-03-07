@@ -58,7 +58,7 @@ link.setAttribute('href', 'https://google.com.br')
 // Verifique a distância da primeira imagem
 // em relação ao topo da página
 const firstImg = document.querySelector('img');
-console.log(`a primeira imagem está a ${firstImg.offsetTop}px do topo`)
+// console.log(`a primeira imagem está a ${firstImg.offsetTop}px do topo`)
 
 // Retorne a soma da largura de todas as imagens
 
@@ -67,7 +67,7 @@ function somaLargura(){
   images.forEach((image) => {
     totalWidth += image.offsetWidth
   })
-  console.log(`a soma das larguras de todas as imagens dá ${totalWidth}px`)
+  // console.log(`a soma das larguras de todas as imagens dá ${totalWidth}px`)
 }
 window.onload = ()=> somaLargura()
 
@@ -77,9 +77,9 @@ window.onload = ()=> somaLargura()
 const allLinks = document.querySelectorAll('a');
 allLinks.forEach((link) => {
   if(link.offsetWidth >= 48 && link.offsetWidth >=48){
-    console.log(`o seguinte links está com dimensoes CORRETAS:`, link)
+    // console.log(`o seguinte links está com dimensoes CORRETAS:`, link)
   } else {
-    console.log(`o seguinte links está com dimensoes INCORRETAS:`, link)
+    // console.log(`o seguinte links está com dimensoes INCORRETAS:`, link)
   }
 })
 
@@ -93,3 +93,43 @@ if(browser){
   document.querySelector('.menu').classList.remove('menu-mobile')
 }
 // console.log(browser)
+
+// Quando o usuário clicar nos links internos do site,
+// adicione a classe ativo ao item clicado e remova dos
+// demais itens caso eles possuam a mesma. Previna
+// o comportamento padrão desses links
+const linkInternos = document.querySelectorAll('a[href^="#"]');
+
+linkInternos.forEach(link => {
+  link.addEventListener('click', handleClick)
+})
+
+function handleClick(e){
+  e.preventDefault();
+  linkInternos.forEach(link => link.classList.remove('ativo'))
+  e.currentTarget.classList.add('ativo')
+}
+
+// Selecione todos os elementos do site começando a partir do body,
+// ao clique mostre exatamente quais elementos estão sendo clicados
+const allItens = document.querySelectorAll('body *')
+
+allItens.forEach(item => item.addEventListener('click', showItem))
+
+function showItem(event){
+  // console.log(event.currentTarget)
+}
+
+// Utilizando o código anterior, ao invés de mostrar no console,
+// remova o elemento que está sendo clicado, o método remove() remove um elemento
+
+function removeItem(event){
+  // event.currentTarget.remove()
+}
+
+// Se o usuário clicar na tecla (t), aumente todo o texto do site. 
+window.addEventListener('keydown', (e) => {
+  if(e.key === 't'){
+    document.documentElement.classList.toggle('active')
+  }
+})
