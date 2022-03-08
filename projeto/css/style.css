@@ -140,6 +140,7 @@ html.active{
   margin-top: 2rem;
   margin-bottom: .5rem;
   color: #e54;
+  cursor: pointer;
 }
 
 .faq-lista dt::before{
@@ -239,5 +240,34 @@ html.active{
   to{
     opacity: 1;
     transform: translate3d(0,0,0);
+  }
+}
+
+.js .js-accordeon dd{
+  display: none;
+}
+
+.js-accordeon dt::after{
+  content: '⤵';
+  margin-left: 10px;
+}
+
+.js-accordeon dt.ativo::after{
+  content: '⤴';
+}
+
+.js .js-accordeon dd.ativo{
+  display: block;
+  animation: down .5s forwards;
+}
+
+@keyframes down{
+  from{
+    opacity: 0;
+    max-height: 0;
+  }
+  to{
+    opacity: 1;
+    max-height: 200px;
   }
 }
