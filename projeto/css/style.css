@@ -247,12 +247,12 @@ html.active{
   display: none;
 }
 
-.js-accordeon dt::after{
+.js .js-accordeon dt::after{
   content: '⤵';
   margin-left: 10px;
 }
 
-.js-accordeon dt.ativo::after{
+.js .js-accordeon dt.ativo::after{
   content: '⤴';
 }
 
@@ -270,4 +270,15 @@ html.active{
     opacity: 1;
     max-height: 200px;
   }
+}
+
+.js .js-scroll{
+  opacity: 0;
+  transform: translate3d(-30px,0,0);
+  transition: .5s;
+}
+
+.js .js-scroll.ativo{
+  opacity: 1;
+  transform: translate3d(0,0,0);
 }
