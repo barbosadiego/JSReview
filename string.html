@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Métodos e propriedade de String</title>
+</head>
+<body>
+  <script>
+    // Utilizando o foreach na array abaixo,
+    // some os valores de Taxa e os valores de Recebimento
+
+    const transacoes = [
+      {
+        descricao: 'Taxa do Pão',
+        valor: 'R$ 39',
+      },
+      {
+        descricao: 'Taxa do Mercado',
+        valor: 'R$ 129',
+      },
+      {
+        descricao: 'Recebimento de Cliente',
+        valor: 'R$ 99',
+      },
+      {
+        descricao: 'Taxa do Banco',
+        valor: 'R$ 129',
+      },
+      {
+        descricao: 'Recebimento de Cliente',
+        valor: 'R$ 49',
+      },
+    ];
+
+    let totalTaxas = 0;
+    let totalRecebimento = 0;
+    transacoes.forEach((item) => {
+      if(item.descricao.toLowerCase().includes('taxa')){
+        totalTaxas += +item.valor.replace('R$', '')
+      } else {
+        totalRecebimento += +item.valor.replace('R$', '')
+      }
+    })
+    console.log(`o total de taxa é ${totalTaxas} e o total de recebimentos é ${totalRecebimento}`)
+
+    // Retorne uma array com a lista abaixo
+    const transportes = 'Carro;Avião;Trem;Ônibus;Bicicleta';
+    const transportesArray = transportes.split(';')
+    console.log(transportesArray)
+
+    // Substitua todos os span's por a's
+    const html = `<ul>
+                    <li><span>Sobre</span></li>
+                    <li><span>Produtos</span></li>
+                    <li><span>Contato</span></li>
+                  </ul>`
+    ;
+    const htmlArray = html.split('span');
+    const newHtml = htmlArray.join('a');
+    console.log(newHtml)
+
+    // Retorne o último caracter da frase
+    const frase = 'Melhor do ano!';
+    console.log(frase.slice(-1))
+
+    // Retorne o total de taxas
+    const transacoes2 = ['Taxa do Banco', '   TAXA DO PÃO', '  taxa do mercado', 'depósito Bancário', 'TARIFA especial'];
+    let newTransacoes = []
+    transacoes2.forEach((item) => {
+      if(item.toLowerCase().includes('taxa'))
+      newTransacoes.push(item.trim().toUpperCase())
+    })
+    console.log(newTransacoes)
+  </script>
+</body>
+</html>
