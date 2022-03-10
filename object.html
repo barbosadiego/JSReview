@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object</title>
+</head>
+<body>
+  <script>
+    // Crie uma função que verifique
+    // corretamente o tipo de dado
+    function tipoDado(dado){
+      console.log(Object.prototype.toString.call(dado)) 
+    }
+
+    tipoDado([]);
+    tipoDado({});
+    tipoDado(1)
+    
+    // Crie um objeto quadrado com
+    // a propriedade lados e torne
+    // ela imutável
+    const quadrado ={}
+    Object.defineProperties(quadrado, {
+      lados:{
+        value: 4,
+      }
+    })
+    console.log(quadrado)
+
+    // Previna qualquer mudança
+    // no objeto abaixo
+    const configuracao = {
+      width: 800,
+      height: 600,
+      background: '#333'
+    }
+    Object.freeze(configuracao)
+
+    // Liste o nome de todas
+    // as propriedades do
+    // protótipo de String e Array
+    console.log(Object.getOwnPropertyNames(String.prototype))
+    console.log(Object.getOwnPropertyNames(Array.prototype))
+
+  </script>
+</body>
+</html>
