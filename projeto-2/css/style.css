@@ -301,3 +301,18 @@ html.active{
   opacity: 1;
   transform: translate3d(0,0,0);
 }
+
+[data-semana]::after{
+  content: '';
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  margin-left: 5px;
+  background-color: #e54;
+  border-radius: 50%;
+  border: 2px solid #000;
+}
+
+[data-semana].active::after{
+  background-color: #3f4;
+}
