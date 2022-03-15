@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fecth</title>
+    <style>
+      .form {
+        height: 500px;
+        width: 100%;
+        background-color: #ccc;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 20px;
+        padding: 30px;
+        box-sizing: border-box;
+      }
+      .res {
+        flex: 1;
+        background-color: #222;
+        width: 80%;
+        /* height: 150px; */
+        color: white;
+        display: grid;
+        place-items: center;
+        font-size: 1.2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="form">
+      <form action="">
+        <label for="cep">CEP</label>
+        <input type="number" name="cep" id="cep" />
+        <button class="btn">Buscar CEP</button>
+      </form>
+      <div class="res"></div>
+    </section>
+    <div class="bitcoin"></div>
+    <button class="piadaSite">Buscar Piada</button>
+    <div class="piada"></div>
+
+    <script>
+      // Utilizando a API https://viacep.com.br/ws/${CEP}/json/
+      // crie um formulário onde o usuário pode digitar o cep
+      // e o endereço completo é retornado ao clicar em buscar
+
+      const cep = document.getElementById("cep");
+      const btn = document.querySelector(".btn");
+      const display = document.querySelector(".res");
+
+      btn.addEventListener("click", buscaCep);
+
+      function buscaCep(e) {
+        e.preventDefault();
+        const buscaCep = fetch(`https://viacep.com.br/ws/${cep.value}/json/`);
+        buscaCep
+          .then((response) => response.text())
+          .then((data) => (display.innerText = data));
+      }
+
+      // Utilizando a API https://blockchain.info/ticker
+      // retorne no DOM o valor de compra da bitcoin and reais.
+      // atualize este valor a cada 30s
+      const bitcoinDisplay = document.querySelector('.bitcoin');
+      setTimeout(() => {
+        const bitcoinPrice = fetch('https://blockchain.info/ticker');
+        bitcoinPrice
+          .then(resonse => resonse.json())
+          .then(data => showPrice(data))
+        ;
+      }, 1000 * 2)
+
+      function showPrice(data){
+        bitcoinDisplay.innerText = `Valor atual do bitcoin ⏩ ${data.BRL.buy.toLocaleString('pt-BR',{style: 'currency', currency: 'BRL'})}`
+      }
+
+      // Utilizando a API https://api.chucknorris.io/jokes/random
+      // retorne uma piada randomica do chucknorris, toda vez que
+      // clicar em próxima
+      const btnPiada = document.querySelector('.piadaSite');
+      const displayPiada = document.querySelector('.piada');
+
+      btnPiada.addEventListener('click', piadaFetch)
+
+      function piadaFetch(){
+        console.log('ok')
+        const piada = fetch('https://api.chucknorris.io/jokes/random')
+          .then(r => r.json())
+          .then(joke => showJoke(joke))
+        ;
+      }
+
+      function showJoke(joke){
+        displayPiada.innerText = joke.value
+      }
+    </script>
+  </body>
+</html>
