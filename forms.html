@@ -86,8 +86,9 @@
     function handleChange(event){
       const target = event.target.name;
       const value = event.target.value;
-      changeObj[target](value)
-      showCss()
+      changeObj[target](value);
+      setStorage(target, value);
+      showCss();
     }
 
     const changeObj = {
@@ -123,9 +124,23 @@
 
     function showCss(){
       cssRes.innerHTML = '<span>' + button.style.cssText.split('; ').join(';<span></span>');
-      // console.log(button.style.cssText.split(';'))
     }
 
+    function setStorage(key, value){
+      localStorage[key] = value
+    }
+
+    function getStorage(){
+      const properties = Object.keys(localStorage);
+      properties.forEach(item => {
+        changeObj[item](localStorage[item])
+        controles.elements[item].value = localStorage[item]
+      });
+      showCss()
+    }
+
+    getStorage()
+    
   </script>
 </body>
 </html>
