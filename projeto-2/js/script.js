@@ -8,6 +8,7 @@ import iniDropdown from "./dropdown-menu.js";
 import initMenuMobile from "./menu-mobile.js";
 import initWeekTime from "./time-week.js";
 import initFetchAnimais from "./fetch.js";
+import iniBitcoin from "./bitcoin-fetch.js";
 
 iniTabNav();
 initScroll();
@@ -19,3 +20,4 @@ iniDropdown();
 initMenuMobile();
 initWeekTime();
 initFetchAnimais();
+iniBitcoin();
