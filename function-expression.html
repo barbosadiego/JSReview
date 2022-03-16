@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Function Expression</title>
+</head>
+<body>
+  
+  <script>
+    // Remova o erro
+    // priceNumber('R$ 99,99');
+    const priceNumber = n => +n.replace('R$', '').replace(',', '.');
+    console.log(priceNumber('R$ 99,99'));
+
+    // Crie uma IIFE e isole o escopo
+    // de qualquer código JS.
+    (
+      function showName (){
+        var nome = 'Diego'
+        console.log(nome)
+      }
+    )();
+
+    // Como podemos utilizar
+    // a função abaixo.
+    const active = callback => callback();
+
+    active(function(){
+      console.log('teste')
+    })
+  </script>
+</body>
+</html>
