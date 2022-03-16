@@ -6,8 +6,8 @@ import initModal from "./modal.js";
 import initTooltip from "./tooltip.js";
 import iniDropdown from "./dropdown-menu.js";
 import initMenuMobile from "./menu-mobile.js";
-import initAnimaNumeros from "./anima-numeros.js";
-import initWeekTime from "./time-week.js"
+import initWeekTime from "./time-week.js";
+import initFetchAnimais from "./fetch.js";
 
 iniTabNav();
 initScroll();
@@ -17,5 +17,5 @@ initModal();
 initTooltip();
 iniDropdown();
 initMenuMobile();
-initAnimaNumeros();
 initWeekTime();
+initFetchAnimais();
