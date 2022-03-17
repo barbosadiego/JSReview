@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iterables</title>
+</head>
+<body>
+  <ul class="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+  <script>
+    // Crie 4 li's na página
+    // Utilizando o for...of
+    // adicione uma classe a cada li
+    const list = document.querySelectorAll('li');
+    for(const item of list){
+      item.classList.add('active')
+    }
+
+    // Utilize o for...in para listar
+    // todos as propriedades e valores
+    // do objeto window
+    // const propriedades = window;
+    for(const prop in window){
+      console.log(prop + ': ' + window[prop])
+    }
+
+  </script>
+</body>
+</html>
