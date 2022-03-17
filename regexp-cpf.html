@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Limpar CPF</title>
+  </head>
+  <body>
+    <style>
+      li {
+        padding: 5px;
+        font-family: "IBM Plex Mono";
+      }
+      li:nth-of-type(odd) {
+        background: rgba(0, 0, 0, 0.1);
+      }
+    </style>
+    <h1>Clientes CPF</h1>
+    <ul class="cpf">
+      <li>111.111.111-11</li>
+      <li>222222222-22</li>
+      <li>333-333-333-33</li>
+      <li>44444444444</li>
+      <li>555 555 555 55</li>
+      <li>666666.666-66</li>
+      <li>777.777.777.77</li>
+    </ul>
+    <script>
+      const cpfs = document.querySelectorAll(".cpf li");
+
+      function elementsInnerText([...elements]) {
+        return elements.map((element) => element.innerText);
+      }
+
+      const limparCpf = (cpf) => cpf.replace(/\D/g, "");
+
+      const construirCpf = (cpf) =>
+        cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g, "$1.$2.$3-$4")
+      ;
+
+      const formatarCpfs = (cpfs) => cpfs.map(limparCpf).map(construirCpf);
+
+      const substituirCpfs = (cpfsElements) => {
+        const cpfs = elementsInnerText(cpfsElements);
+        const cpfsFormatados = formatarCpfs(cpfs);
+        cpfsElements.forEach((element, index) =>{
+          element.innerText = cpfsFormatados[index]
+        })
+      }
+
+      const resultado = elementsInnerText(cpfs);
+      // console.log(formatarCpfs(resultado))
+      substituirCpfs(cpfs)
+    </script>
+  </body>
+</html>
