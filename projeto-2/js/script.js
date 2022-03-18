@@ -1,5 +1,5 @@
 import iniTabNav from "./tabNav.js";
-import initScroll from "./scroll-suave.js";
+import ScrollSuave from "./scroll-suave.js";
 import initAnimaScroll from "./anima-scroll.js";
 import initAccordeonNav from "./accordeon.js";
 import initModal from "./modal.js";
@@ -10,8 +10,10 @@ import initWeekTime from "./time-week.js";
 import initFetchAnimais from "./fetch.js";
 import iniBitcoin from "./bitcoin-fetch.js";
 
+const scrollSuave = new ScrollSuave('[data-js="menu"] a[href^="#"]');
+scrollSuave.init()
+
 iniTabNav();
-initScroll();
 initAnimaScroll();
 initAccordeonNav();
 initModal();
