@@ -1,6 +1,6 @@
 import ScrollSuave from "./scroll-suave.js";
 import AccordeonNav from "./accordeon.js";
-import iniTabNav from "./tabNav.js";
+import tabNav from "./tabNav.js";
 import initAnimaScroll from "./anima-scroll.js";
 import initModal from "./modal.js";
 import initTooltip from "./tooltip.js";
@@ -16,7 +16,10 @@ scrollSuave.init();
 const accordeon = new AccordeonNav("[data-js='accordeon'] dt");
 accordeon.init();
 
-iniTabNav();
+const tabnav = new tabNav("[data-js='tab-menu'] li","[data-js='tab-content'] section")
+tabnav.init();
+
+
 initAnimaScroll();
 initModal();
 initTooltip();
