@@ -1,7 +1,7 @@
-import iniTabNav from "./tabNav.js";
 import ScrollSuave from "./scroll-suave.js";
+import AccordeonNav from "./accordeon.js";
+import iniTabNav from "./tabNav.js";
 import initAnimaScroll from "./anima-scroll.js";
-import initAccordeonNav from "./accordeon.js";
 import initModal from "./modal.js";
 import initTooltip from "./tooltip.js";
 import iniDropdown from "./dropdown-menu.js";
@@ -11,11 +11,13 @@ import initFetchAnimais from "./fetch.js";
 import iniBitcoin from "./bitcoin-fetch.js";
 
 const scrollSuave = new ScrollSuave('[data-js="menu"] a[href^="#"]');
-scrollSuave.init()
+scrollSuave.init();
+
+const accordeon = new AccordeonNav("[data-js='accordeon'] dt");
+accordeon.init();
 
 iniTabNav();
 initAnimaScroll();
-initAccordeonNav();
 initModal();
 initTooltip();
 iniDropdown();
