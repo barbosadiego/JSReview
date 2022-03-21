@@ -8,7 +8,7 @@ import fetchAnimais from "./fetch.js";
 import iniDropdown from "./dropdown-menu.js";
 import initMenuMobile from "./menu-mobile.js";
 import initWeekTime from "./time-week.js";
-import iniBitcoin from "./bitcoin-fetch.js";
+import fetchBitcoin from "./bitcoin-fetch.js";
 
 const scrollSuave = new ScrollSuave('[data-js="menu"] a[href^="#"]');
 scrollSuave.init();
@@ -25,10 +25,11 @@ modal.init();
 const tooltip = new Tooltip("[data-tooltip]");
 tooltip.init();
 
+fetchAnimais('./animaisapi.json', '.numeros-grid');
+fetchBitcoin("https://blockchain.info/ticker", ".bitcoin");
 
+
+initWeekTime();
 initAnimaScroll();
 iniDropdown();
 initMenuMobile();
-initWeekTime();
-fetchAnimais('./animaisapi.json', '.numeros-grid');
-iniBitcoin();
