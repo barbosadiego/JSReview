@@ -2,14 +2,13 @@ import ScrollSuave from "./scroll-suave.js";
 import AccordeonNav from "./accordeon.js";
 import tabNav from "./tabNav.js";
 import Modal from "./modal.js";
-import initAnimaScroll from "./anima-scroll.js";
 import Tooltip from "./tooltip.js";
 import fetchAnimais from "./fetch.js";
-import iniDropdown from "./dropdown-menu.js";
 import initMenuMobile from "./menu-mobile.js";
 import initWeekTime from "./time-week.js";
 import fetchBitcoin from "./bitcoin-fetch.js";
 import AnimaScroll from "./anima-scroll.js";
+import DropdownMenu from "./dropdown-menu.js";
 
 const scrollSuave = new ScrollSuave('[data-js="menu"] a[href^="#"]');
 scrollSuave.init();
@@ -32,6 +31,8 @@ fetchBitcoin("https://blockchain.info/ticker", ".bitcoin");
 const animaScroll = new AnimaScroll("[data-js='scroll']");
 animaScroll.init();
 
+const dropdownMenu = new DropdownMenu("[data-dropdown]");
+dropdownMenu.init()
+
 initWeekTime();
-iniDropdown();
 initMenuMobile();
