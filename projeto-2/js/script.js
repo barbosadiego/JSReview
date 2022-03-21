@@ -4,10 +4,10 @@ import tabNav from "./tabNav.js";
 import Modal from "./modal.js";
 import initAnimaScroll from "./anima-scroll.js";
 import Tooltip from "./tooltip.js";
+import fetchAnimais from "./fetch.js";
 import iniDropdown from "./dropdown-menu.js";
 import initMenuMobile from "./menu-mobile.js";
 import initWeekTime from "./time-week.js";
-import initFetchAnimais from "./fetch.js";
 import iniBitcoin from "./bitcoin-fetch.js";
 
 const scrollSuave = new ScrollSuave('[data-js="menu"] a[href^="#"]');
@@ -26,12 +26,9 @@ const tooltip = new Tooltip("[data-tooltip]");
 tooltip.init();
 
 
-
-
-
 initAnimaScroll();
 iniDropdown();
 initMenuMobile();
 initWeekTime();
-initFetchAnimais();
+fetchAnimais('./animaisapi.json', '.numeros-grid');
 iniBitcoin();
