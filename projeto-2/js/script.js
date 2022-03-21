@@ -3,7 +3,7 @@ import AccordeonNav from "./accordeon.js";
 import tabNav from "./tabNav.js";
 import Modal from "./modal.js";
 import initAnimaScroll from "./anima-scroll.js";
-import initTooltip from "./tooltip.js";
+import Tooltip from "./tooltip.js";
 import iniDropdown from "./dropdown-menu.js";
 import initMenuMobile from "./menu-mobile.js";
 import initWeekTime from "./time-week.js";
@@ -22,13 +22,14 @@ tabnav.init();
 const modal = new Modal('[data-modal="abrir"]','[data-modal="fechar"]','[data-modal="container"]');
 modal.init();
 
+const tooltip = new Tooltip("[data-tooltip]");
+tooltip.init();
 
 
 
 
 
 initAnimaScroll();
-initTooltip();
 iniDropdown();
 initMenuMobile();
 initWeekTime();
