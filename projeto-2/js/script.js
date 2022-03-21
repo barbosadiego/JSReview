@@ -36,7 +36,6 @@ menuMobile.init();
 
 const funcionamento = new WeekTime('[data-semana]', 'active');
 funcionamento.init();
-console.log(funcionamento)
 
 fetchAnimais('./animaisapi.json', '.numeros-grid');
 fetchBitcoin("https://blockchain.info/ticker", ".bitcoin");
